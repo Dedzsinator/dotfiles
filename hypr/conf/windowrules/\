@@ -1,0 +1,21 @@
+# ----------------------------------------------------- 
+# Window rules
+# ----------------------------------------------------- 
+
+windowrule = tile,^(Microsoft-edge)$
+windowrule = tile,^(Brave-browser)$
+windowrule = tile,^(Chromium)$
+windowrule = float,^(pavucontrol)$
+windowrule = float,^(blueman-manager)$
+windowrule = float,^(nm-connection-editor)$
+windowrule = float,^(qalculate-gtk)$
+ # GROMIT-MPX
+ # Make Gromit stay on top and not blurred across all workspaces
+windowrule = noblur, ^(Gromit-mpx)$
+windowrule = alwaysontop, ^(Gromit-mpx)$
+
+# Optionally set opacity to 1 (completely opaque)
+windowrule = opacity 1 override, 1 override, ^(Gromit-mpx)$
+
+# Optionally remove shadows for a cleaner look
+windowrule = noshadow, ^(Gromit-mpx)$

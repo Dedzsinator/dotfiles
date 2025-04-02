@@ -1,0 +1,224 @@
+
+@import '../../.cache/wal/colors-waybar.css';
+
+@define-color text            @foreground;
+@define-color bg              @color1;
+@define-color selected        @color6;
+@define-color hover           alpha(@selected, .4);
+
+/* General Settings */
+* {
+    outline: none;
+    transition: 200ms;
+}
+
+/* Notifications Styling */
+.notification-row {
+    outline: none;
+    margin: 0;
+    padding: 0px;
+}
+
+.notification-row .notification-background .close-button {
+    /* The notification Close Button */
+    background: transparent;
+    color: @text;
+    text-shadow: none;
+    box-shadow: none;
+    margin-top: 2px;
+    margin-right: 2px;
+    padding: 0;
+    border: none;
+    border-radius: 100%;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.notification-row .notification-background .close-button:hover {
+    box-shadow: none;
+    background: @hover;
+    transition: background 0.15s ease-in-out;
+    border: 0px;
+}
+
+.notification-row .notification-background .notification {
+    /* The actual notification */
+    background: @background;
+}
+
+.notification-row .notification-background .notification .notification-action, 
+.notification-row .notification-background .notification .notification-default-action {
+    color: @text;
+}
+
+.notification-row .notification-background .notification .notification-action:hover, 
+.notification-row .notification-background .notification .notification-default-action:hover {
+    -gtk-icon-effect: none;
+    background: @hover;
+}
+
+/* Notification Group Headers */
+.notification-group .notification-group-headers {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.notification-group .notification-group-headers .notification-group-header {
+    font-size: 20px;
+    margin-left: 3px;
+}
+
+.notification-group.collapsed .notification-row .notification {
+    background-color: @background;
+}
+
+.notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
+    box-shadow: 0 0 0 1px alpha(@hover, 0.3), 
+                0 1px 3px 1px alpha(@hover, 0.3), 
+                0 2px 6px 2px alpha(@hover, 0.3);
+}
+
+/* Control Center */
+.control-center {
+    box-shadow: 0px 2px 5px black;
+    background: alpha(@background, .55);
+    border: 2px solid @selected;
+}
+
+.control-center-clear-all {
+    background: @bg;
+}
+
+.control-center-clear-all:hover {
+    background: @hover;
+}
+
+.control-center-clear-all:active {
+    background: @selected;
+}
+
+/* Title Widget */
+.widget-title {
+    background: none;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* Do Not Disturb Widget */
+.widget-dnd {
+    background: none;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.widget-dnd > switch {
+    background: @bg;
+    font-size: initial;
+    border-radius: 12px;
+    box-shadow: none;
+    padding: 2px;
+}
+
+.widget-dnd > switch:hover {
+    background: @hover;
+}
+
+.widget-dnd > switch:checked {
+    background: @selected;
+}
+
+.widget-dnd > switch slider {
+    background: @text;
+    border-radius: 12px;
+}
+
+/* Media Player Widget */
+@define-color mpris-album-art-overlay rgba(0, 0, 0, 0.55);
+@define-color mpris-button-hover rgba(0, 0, 0, 0.50);
+.widget-mpris {
+}
+
+.widget-mpris .widget-mpris-player {
+    padding: 10px;
+    margin: 8px 15px;
+    background-color: @mpris-album-art-overlay;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+    border: 2px;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-title {
+    font-size: 16px;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+    font-size: 14px;
+}
+
+/* Buttons Grid Widget */
+.widget-buttons-grid {
+    background-color: alpha(@color2, 0.5);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: alpha(@color2, 0.5);
+    border-radius: 12px;
+    min-width: 45px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @hover;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+    background: @selected;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background: red;
+}
+
+/* Blue Light Filter Button */
+.widget-buttons-grid > flowbox > flowboxchild > button.bluelight-filter {
+    background: alpha(@color3, 0.5);  /* Custom color for blue light filter */
+    color: @text;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.bluelight-filter:hover {
+    background: alpha(@hover, 0.7);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.bluelight-filter:active {
+    background: @selected;
+}
+
+/* Brightness Slider Widget */
+.widget-brightness-slider {
+    margin-left: 15px;
+    margin-right: 15px;
+    background: alpha(@bg, 0.5);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.widget-brightness-slider > scale {
+    background: alpha(@bg, 0.7);
+    border-radius: 12px;
+}
+
+.widget-brightness-slider > scale > trough {
+    background: alpha(@bg, 0.3);
+    border-radius: 12px;
+}
+
+.widget-brightness-slider > scale > trough slider {
+    background: @selected;
+    border-radius: 12px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.widget-brightness-slider > scale > trough:hover slider {
+    background: @hover;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
